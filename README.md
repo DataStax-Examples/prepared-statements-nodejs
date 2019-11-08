@@ -1,45 +1,48 @@
-# datastax-example-template
-A short few sentences describing what is the purpose of the example and what the user will learn
+# Using the Object Mapper in Node.js
+This example demonstrates how to use the prepared statements in Node.js to insert and retrieve data from a Cassandra cluster.
 
-e.g.
-This application shows how to use configure your NodeJs application to connect to DDAC/Cassandra/DSE or an Apollo database at runtime.
-
-Contributors: A listing of contributors to this repository linked to their github profile
+Contributors: [Dave Bechberger](https://github.com/bechbd)
 
 ## Objectives
-A list of the top objectives that are being demonstrated by this sample
 
-e.g.
-* To demonstrate how to specify at runtime between a standard (DSE/DDAC/C*) client configuration and an Apollo configuration for the same application.
+* To provides a singular example of how to insert and retrieve data using prepared statements in Node.js
   
 ## Project Layout
-A list of key files within this repo and a short 1-2 sentence description of why they are important to the project
 
-e.g.
-* app.js - The main application file which contains all the logic to switch between the configurations
+* app.js - The main application file which contains the example code for using prepared statements
 
 ## How this Sample Works
-A description of how this sample works and how it demonstrates the objectives outlined above
+This example starts by first, creates a `videos` table in the `examples` keyspace.
+
+Once this table is created the code runs through an insert and an select using a prepared statement.  To create a statement as a prepared statement in Node.js you use a command like:
+
+`client.execute(query, params, { prepare: true })`
+
+The critical part of that command is the third parameter `{ prepare: true }`.  Adding this parameter makes this a prepared statement.  Prepared statements are beneficial for several reasons:
+
+* Prepared statements are parsed and stored on the Cassandra nodes which increase the performance of subsequent queries by preparing them once and executing them many times with bound parameters
+* Prepared statements allow for proper mapping of Javascript types to Cassandra types
+
 
 ## Setup and Running
 
 ### Prerequisites
-The prerequisites required for this application to run
 
-e.g.
-* NodeJs version 8
-* A DSE 6.7 Cluster
-* Schema added to the cluster
+* Node.Js version 8
+* A Cassandra cluster
+
+**Note** This application defaults to connecting to a cluster on localhost with a local data center of `dc1`.  These parameters can be changed on line 4 of [app.js](app.js).
 
 ### Running
-The steps and configuration needed to run and build this application
-
-e.g.
 To run this application use the following command:
 
 `node app.js`
 
 This will produce the following output:
 
-`Connected to cluster with 3 host(s) ["XX.XX.XX.136:9042","XX.XX.XX.137:9042","XX.XX.XX.138:9042"]`
+```
+Inserting Data Using a Prepared Statement
+Selecting Data Using a Prepared Statement
+Video Id: 1665ffe0-77eb-4047-8791-f043accda4dd, User Id: 98462781-327b-40dc-9036-91702afdeb77, Name: Test Movie, Description: Test Description
+```
 
