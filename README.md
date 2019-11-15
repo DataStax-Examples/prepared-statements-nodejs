@@ -1,4 +1,4 @@
-# Using the Prepared Statements in Node.js
+# Prepared Statements in Node.js
 This example demonstrates how to use the prepared statements in Node.js to insert and retrieve data from a Cassandra cluster.
 
 Contributors: [Dave Bechberger](https://github.com/bechbd)
