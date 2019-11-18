@@ -1,20 +1,20 @@
 # Prepared Statements in Node.js
-This example demonstrates how to use the prepared statements in Node.js to insert and retrieve data from a Cassandra cluster.
+This example shows how to use the [prepared statements](https://docs.datastax.com/en/devapp/doc/devapp/driversBestPractices.html#driversBestPractices__usePreparedStatements) in the Node.js DataStax Driver to write and read data from a Cassandra database.
 
 Contributors: [Dave Bechberger](https://github.com/bechbd)
 
 ## Objectives
 
-* To provides a singular example of how to insert and retrieve data using prepared statements in Node.js
+* Learn how to use prepared statements in Node.js
   
 ## Project Layout
 
-* app.js - The main application file which contains the example code for using prepared statements
+* [app.js](app.js) - The main application file, contains the example code for using prepared statements
 
 ## How this Sample Works
-This example starts by first, creates a `videos` table in the `examples` keyspace.
+This example first creates a `videos` table in the `examples` keyspace.
 
-Once this table is created the code runs through an insert and an select using a prepared statement.  To create a statement as a prepared statement in Node.js you use a command like:
+Once this table is created the code runs an `INSERT` and `SELECT` CQL query using a prepared statement. To create a statement as a prepared statement in Node.js you use a command like:
 
 `client.execute(query, params, { prepare: true })`
 
@@ -28,7 +28,7 @@ The critical part of that command is the third parameter `{ prepare: true }`.  A
 
 ### Prerequisites
 
-* Node.Js version 8
+* Node.Js version 8 ( [download](https://nodejs.org/en/download/) )
 * A Cassandra cluster
 
 **Note** This application defaults to connecting to a cluster on localhost with a local data center of `dc1`.  These parameters can be changed on line 4 of [app.js](app.js).
