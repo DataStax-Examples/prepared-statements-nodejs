@@ -29,9 +29,11 @@ The critical part of that command is the third parameter `{ prepare: true }`.  A
 ### Prerequisites
 
 * Node.Js version 8 ( [download](https://nodejs.org/en/download/) )
-* A Cassandra cluster
+* A Cassandra, DDAC, DSE cluster or Apollo database ( docker is a nice option for local install - [see docs](https://docs.datastax.com/en/docker/doc/docker/dockerQuickStart.html) )
 
-**Note** This application defaults to connecting to a cluster on localhost with a local data center of `dc1`.  These parameters can be changed on line 4 of [app.js](app.js).
+**Note** This application defaults to connecting to a cluster on localhost with a local data center of `dc1`.  If this is not the case then you will need to change the following in [app.js](app.js):
+
+`const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCenter: 'dc1' });`
 
 ### Running
 To run this application use the following command:
