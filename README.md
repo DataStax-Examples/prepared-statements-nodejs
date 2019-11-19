@@ -1,7 +1,7 @@
 # Prepared Statements in Node.js
-This example shows how to use the [prepared statements](https://docs.datastax.com/en/devapp/doc/devapp/driversBestPractices.html#driversBestPractices__usePreparedStatements) in the Node.js DataStax Driver to write and read data from a Cassandra database.
+This example shows the best practice of using [prepared statements](https://docs.datastax.com/en/devapp/doc/devapp/driversBestPractices.html#driversBestPractices__usePreparedStatements) in the [Node.js DataStax Driver](https://docs.datastax.com/en/developer/nodejs-driver/latest/) to write and read data from a Cassandra database.
 
-Contributors: [Dave Bechberger](https://github.com/bechbd)
+Contributor(s): [Dave Bechberger](https://github.com/bechbd)
 
 ## Objectives
 
@@ -11,7 +11,7 @@ Contributors: [Dave Bechberger](https://github.com/bechbd)
 
 * [app.js](app.js) - The main application file, contains the example code for using prepared statements
 
-## How this Sample Works
+## How this Works
 This example first creates a `videos` table in the `examples` keyspace.
 
 Once this table is created the code runs an `INSERT` and `SELECT` CQL query using a prepared statement. To create a statement as a prepared statement in Node.js you use a command like:
